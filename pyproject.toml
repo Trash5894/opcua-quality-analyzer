@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "opcua-quality-analyzer"
+version = "0.1.0"
+description = "Structural quality analysis of OPC UA NodeSet2 models via UML metrics"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+authors = [
+  { name = "Asif Sarfaraz Chaudhry" }
+]
+keywords = ["OPC UA", "UML", "metrics", "quality", "Industry 4.0", "NodeSet2"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.11",
+]
+
+dependencies = [
+  "lxml>=5.0",
+  "pandas>=2.0",
+  "streamlit>=1.35",
+  "plotly>=5.20",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-cov"]
+
+[project.scripts]
+opcua-analyze = "src.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
